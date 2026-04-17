@@ -107,7 +107,7 @@ bool ESP32Can::setup_internal() {
     this->mark_failed();
     return false;
   }
-  gpio_set_direction(this->tx_, GPIO_MODE_OUTPUT_OD);
+  gpio_set_direction((gpio_num_t) this->tx_, GPIO_MODE_OUTPUT_OD);
   // Start TWAI driver
   if (twai_start_v2(this->twai_handle_) != ESP_OK) {
     // Failed to start driver
